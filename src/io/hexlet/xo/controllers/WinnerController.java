@@ -11,7 +11,12 @@ public class WinnerController {
     public Figure getWinner(final Field field){
         try {
             for (int i = 0; i < field.getSize(); i++){
-                if (check(field, new Point(i,0),point -> new Point(point.x, point.y + 1)))
+                if (check(field, new Point(i, 0), new IPointGenerator() {
+                    @Override
+                    public Point next(Point point) {
+                        return new Point(point.x, point.y + 1);
+                    }
+                }))
                     return field.getFigure(new Point(i,0));}
 
             for (int i = 0; i < field.getSize(); i++){
