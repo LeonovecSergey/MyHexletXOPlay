@@ -15,7 +15,7 @@ public class XOCLI {
         players[0] = player1;
         players[1] = player2;
 
-        final Game gameXO = new Game(players, new Field(3), "XO");
+        final Game<Figure> gameXO = new Game<>(players, new Field<>(3), "XO");
 
         final ConsoleView consoleView = new ConsoleView();
         consoleView.show(gameXO);
